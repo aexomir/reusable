@@ -3,8 +3,9 @@
 // https://github.com/zoontek/react-native-localize.git
 
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, I18nManager} from 'react-native';
 import * as TP from 'react-native-typography';
+import * as RNLocalize from 'react-native-localize';
 
 import text from '../../constants/text';
 import i18n from '../../constants/i18n';
@@ -14,7 +15,7 @@ export default ({
     family: '',
     class: '',
   },
-  language = 'en',
+  language,
   i18nProps,
   style,
   children,
@@ -24,8 +25,15 @@ export default ({
   const fontStyles = fontLib[font.class || text.fontClass];
 
   // language configuration:
-  i18n.locale = language;
+  const availableLanguages = Object.keys(i18n.translations);
+  const {languageTag: deviceLanguageCode, isRTL} =
+    RNLocalize.findBestAvailableLanguage(availableLanguages);
+  // const deviceLanguageCode = RNLocalize.getLocales()[0].languageCode;      // alternative
+  console.log('deviceLanguageCode', deviceLanguageCode);
+  i18n.locale = language || deviceLanguageCode;
+  i18n.enableFallback = true;
   i18n.missingBehavior = 'guess';
+  I18nManager.allowRTL(isRTL);
 
   return (
     <Text style={[styles.text, fontStyles, style]}>

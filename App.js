@@ -7,7 +7,6 @@ export default App = props => {
   return (
     <View style={styles.container}>
       <Text
-        language="en"
         i18nProps={{
           name: 'Aexo',
         }}>
