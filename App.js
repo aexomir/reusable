@@ -6,7 +6,13 @@ import Text from './src/components/function/Text';
 export default App = props => {
   return (
     <View style={styles.container}>
-      <Text>Hello World</Text>
+      <Text
+        language="en"
+        i18nProps={{
+          name: 'Aexo',
+        }}>
+        {'hello_world'}
+      </Text>
     </View>
   );
 };
