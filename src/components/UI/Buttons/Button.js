@@ -2,36 +2,49 @@
 
 import React, {useState} from 'react';
 import {ActivityIndicator, StyleSheet, TouchableOpacity} from 'react-native';
+import colors from '../../../constants/colors';
 
 import Text from '../../function/Text';
 
 export default Button = ({
   style,
   children,
-  onPress,
+  onPress = () => {},
   title,
   disabledStyle,
+  titleStyle,
   disabled = false,
   ...props
 }) => {
   const [loading, setLoading] = useState(false);
 
   const handleOnPress = event => {
-    setLoading(true);
-    onPress(event);
-    setLoading(false);
+    try {
+      setLoading(true);
+      onPress(event);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.warn(error);
+    }
   };
+
+  const height =
+    (style?.height || 40) +
+    (style?.paddingVertical || 0) +
+    (style?.marginVertical || 0);
+  const width = style?.width || '100%';
 
   return (
     <TouchableOpacity
       onPress={handleOnPress}
       disabled={disabled}
-      style={[styles.button, style, disabled && disabledStyle]}
+      style={[styles.button, style, {height, width}, disabled && disabledStyle]}
       {...props}>
       {loading ? (
         <ActivityIndicator />
       ) : title ? (
-        <Text style={styles.title}>{title}</Text>
+        <Text style={[styles.title, titleStyle]}>{title}</Text>
       ) : (
         children
       )}
@@ -40,7 +53,18 @@ export default Button = ({
 };
 
 const styles = StyleSheet.create({
-  button: {},
+  button: {
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: colors.white,
+  },
+  title: {
+    fontSize: 16,
+    color: colors.white,
+  },
 });
 
 // react-native-really-awesome-button:
