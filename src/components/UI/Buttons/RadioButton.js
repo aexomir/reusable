@@ -1,6 +1,6 @@
 // https://github.com/ArnaudRinquin/react-native-radio-buttons
 
-import React, {useState} from 'react';
+import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {RadioButtons} from 'react-native-radio-buttons';
 
