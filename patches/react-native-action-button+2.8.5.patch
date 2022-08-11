@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-action-button/ActionButton.js b/node_modules/react-native-action-button/ActionButton.js
+index b8306c2..48636b7 100644
+--- a/node_modules/react-native-action-button/ActionButton.js
++++ b/node_modules/react-native-action-button/ActionButton.js
+@@ -363,7 +363,7 @@ ActionButton.propTypes = {
+   bgColor: PropTypes.string,
+   bgOpacity: PropTypes.number,
+   buttonColor: PropTypes.string,
+-  buttonTextStyle: Text.propTypes.style,
++  buttonTextStyle: Text.propTypes,
+   buttonText: PropTypes.string,
+ 
+   offsetX: PropTypes.number,
