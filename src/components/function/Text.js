@@ -29,7 +29,6 @@ export default ({
   const {languageTag: deviceLanguageCode, isRTL} =
     RNLocalize.findBestAvailableLanguage(availableLanguages);
   // const deviceLanguageCode = RNLocalize.getLocales()[0].languageCode;      // alternative
-  console.log('deviceLanguageCode', deviceLanguageCode);
   i18n.locale = language || deviceLanguageCode;
   i18n.enableFallback = true;
   i18n.missingBehavior = 'guess';
