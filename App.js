@@ -1,13 +1,16 @@
 import React from 'react';
 import {View, StyleSheet, LogBox} from 'react-native';
-import ActionButton from './src/components/UI/Buttons/ActionButton';
+
+import Alert, {withAlert} from './src/components/UI/Alert';
+import Button from './src/components/UI/Buttons/Button';
 
 export default App = props => {
   LogBox.ignoreAllLogs(true);
 
   return (
     <View style={styles.container}>
-      <ActionButton />
+      {/* This Alert Component is for initialization; => Don't remove it! */}
+      <Alert />
     </View>
   );
 };
