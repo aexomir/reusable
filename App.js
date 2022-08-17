@@ -9,9 +9,6 @@ export default App = props => {
 
   return (
     <View style={styles.container}>
-      <Drawer>
-        <Text>Open Drawer</Text>
-      </Drawer>
       {/* This Alert Component is for initialization; => Don't remove it! */}
       <Alert />
     </View>

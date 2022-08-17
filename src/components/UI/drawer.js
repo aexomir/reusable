@@ -5,8 +5,8 @@ import Drawer from 'react-native-drawer';
 
 export default Custom_Drawer = ({
   children,
-  content,
-  type = 'overlay', // 'overlay', 'static', 'displace'
+  content, // menu items
+  type = 'displace', // 'overlay', 'static', 'displace'
   onToggle,
   style,
   disabled = false,
