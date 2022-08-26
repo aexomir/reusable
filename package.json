@@ -7,8 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
-    "postinstall": "patch-package"
+    "lint": "eslint ."
   },
   "dependencies": {
     "i18n-js": "^4.0.0-alpha.15",
@@ -16,6 +15,7 @@
     "react-native": "0.69.0",
     "react-native-action-button": "^2.8.5",
     "react-native-drawer": "^2.5.1",
+    "react-native-fast-image": "^8.5.11",
     "react-native-flash-message": "^0.3.1",
     "react-native-localize": "^2.2.2",
     "react-native-radio-buttons": "^1.0.0",
