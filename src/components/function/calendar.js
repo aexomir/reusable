@@ -11,18 +11,17 @@ import {
 import * as RNLocalize from 'react-native-localize';
 
 export default ({
-  initialDate = new Date().toLocaleDateString().replace('.', '-'),
-  minDate = '2018-01-01',
-  maxDate = '2028-12-31',
+  initialDate,
+  minDate = '2020-01-01',
+  maxDate = '2022-12-31',
   onDayPress,
   onMonthChange,
-  arrows, // arrow functions which rerturn components for prev/next month
+  arrows, // arrow functions which return components for prev/next month
+  markingType = 'simple', // 'period' or 'simple',
+  start,
+  end,
   ...props
 }) => {
-  useEffect(() => {
-    localizeCalendar('far');
-  }, []);
-
   return (
     <Calendar
       initialDate={initialDate}
@@ -34,6 +33,14 @@ export default ({
       hideArrows={arrows != null}
       renderArrow={arrows}
       enableSwipeMonths
+      //
+      markingType={markingType}
+      // you can mark days in any order you want, but that's out of this component scope;
+      // if you want to add this functionality, add it with markedDates and see the doc for more info
+      markedDates={{
+        [start]: {startingDay: true, color: '#50cebb'},
+        [end]: {endingDay: true, color: '#50cebb'},
+      }}
       {...props}
     />
   );
@@ -43,6 +50,7 @@ const styles = StyleSheet.create({
   container: {},
 });
 
+// you can call this function whenever you need to change the locale for calendar
 export const localizeCalendar = defaultLocale => {
   LocaleConfig.locales['fa'] = {
     monthNames: [
