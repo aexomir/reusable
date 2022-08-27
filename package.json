@@ -14,6 +14,7 @@
     "react": "18.0.0",
     "react-native": "0.69.0",
     "react-native-action-button": "^2.8.5",
+    "react-native-calendars": "^1.1288.2",
     "react-native-drawer": "^2.5.1",
     "react-native-fast-image": "^8.5.11",
     "react-native-flash-message": "^0.3.1",
